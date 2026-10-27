@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #3ecf4c;
+  --color-brand-soft: #e2fcd9;
+  --color-accent: #ffbd3a;
+  --color-ink: #222325;
+  --color-btn: #6bcc5f;
+  --color-btn-soft: #e8fbe0;
+  --color-tab: #e85b2b;
+  --font-heading: "Poppins", sans-serif;
+  --color-muted: #6b6c70;
+  --color-cream: #fffdf3;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-family: "DM Sans", system-ui, sans-serif;
+}
