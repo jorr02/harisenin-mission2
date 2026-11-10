@@ -1,4 +1,4 @@
-const tones = [
+export const tones = [
   'from-sky-400 to-indigo-600',
   'from-amber-300 to-orange-500',
   'from-emerald-300 to-teal-600',
@@ -6,21 +6,40 @@ const tones = [
   'from-violet-300 to-purple-600',
   'from-lime-300 to-green-600',
 ]
-const categories = ['Pemasaran', 'Desain', 'Pengembangan Diri', 'Bisnis']
+
+export const categories = ['Pemasaran', 'Desain', 'Pengembangan Diri', 'Bisnis']
 
 export const categoryList = ['Semua Kelas', ...categories]
 
-export const courses = Array.from({ length: 9 }, (_, i) => ({
+const seed = [
+  ['Big 4 Auditor Financial Analyst', 'Bisnis'],
+  ['Strategi Digital Marketing untuk UMKM', 'Pemasaran'],
+  ['UI/UX Design dari Nol', 'Desain'],
+  ['Public Speaking Percaya Diri', 'Pengembangan Diri'],
+  ['Manajemen Keuangan Bisnis', 'Bisnis'],
+  ['Social Media Ads Mastery', 'Pemasaran'],
+  ['Desain Grafis dengan Figma', 'Desain'],
+  ['Produktivitas & Manajemen Waktu', 'Pengembangan Diri'],
+  ['Business Model Canvas', 'Bisnis'],
+]
+
+const instructors = ['Jenna Ortega', 'Raka Pratama', 'Sinta Dewi']
+
+// Data awal (array of object) yang dipakai sebagai initial state di Home.
+export const initialCourses = seed.map(([title, category], i) => ({
   id: i + 1,
-  title: 'Big 4 Auditor Financial Analyst',
-  description: 'Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan...',
-  instructor: 'Jenna Ortega',
+  title,
+  description: 'Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan kurikulum terbaik.',
+  instructor: instructors[i % instructors.length],
   role: 'Senior Accountant',
   company: 'Gojek',
   rating: 3.5,
   reviews: 86,
-  price: 'Rp 300K',
-  category: categories[i % categories.length],
+  price: 300000,
+  category,
   tone: tones[i % tones.length],
   image: `/images/cards/img-${i + 1}.jpg`,
 }))
+
+export const formatPrice = (price) =>
+  price >= 1000 ? `Rp ${Math.round(price / 1000)}K` : `Rp ${price}`
